@@ -1,0 +1,31 @@
+.dateSlider{
+    width: 100%;
+    text-align: center;
+    padding: 40px 0; 
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.dateSlider .date{
+    padding: 0 25px; 
+    width: 350px;
+} 
+
+.dateSlider .icon{
+    font-size: 1.6rem;
+}
+
+.dateSlider .btn {
+    cursor: pointer;
+}
+
+.btn-dateslider {
+    background-color: #F36A58; 
+    color: #fff;
+}
+
+.btn-dateslider:hover {
+    color: #fff;
+    background-color: #BE5504;
+}

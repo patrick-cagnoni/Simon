@@ -1,0 +1,9 @@
+.content-grid {
+    display: grid;
+    grid-template-rows: 70px 1fr;
+} 
+
+.app-grid {
+    display: grid;
+    grid-template-columns: 1fr 4fr;
+}

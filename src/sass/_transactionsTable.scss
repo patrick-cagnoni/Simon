@@ -1,0 +1,59 @@
+.transactions-cell-options{
+    display: flex;
+    justify-content: space-around;
+}
+
+.transactions-table {
+    margin: 0 auto;
+    width: 96%;
+    margin-bottom: 80px; 
+}
+
+.table-content {
+    height: 520px;
+    overflow-y: auto;
+}
+
+.input-amount {
+    width: 80px;
+    text-align: right;
+}
+
+.select-type, .select-category{
+    width: 130px;
+}
+
+.table {
+    margin-bottom: 0;
+}
+
+.table td{
+    vertical-align: middle;
+}
+
+.textarea-notes {
+    width: 150px;
+}
+
+.row-add {
+    background: #e3e3e3;
+}
+
+.col-date{
+    width: 28%;
+}
+
+.col-type {
+    width: 21%;
+}
+.col-category {
+    width: 21%;
+}
+
+.col-notes {
+    width: 20%;
+}
+
+.col-amount {
+    width: 10%;
+}

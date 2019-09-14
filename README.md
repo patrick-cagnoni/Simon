@@ -2,10 +2,10 @@
 SIMON é um web-app que ajuda a gerenciar e organizar finanças pessoais. O objetivo é ser simples e intuitivo para que qualquer pessoa possa usar sem complicações.
 Atualmente o projeto está em fase de construção, porém a página de transações já está funcional e pode ser usada.
 
-##Live demo
+## Live demo
 Acesse o projeto em funcionamento no link https://simonmanager.netlify.com
 
-##Instalação
+## Instalação
 
 Após clonar o repositório, use o Node Package Manager para instalar as dependências do projeto.
 
@@ -14,7 +14,7 @@ npm install
 ```
 em seguida inicie o projeto usando o comando `npm start`
 
-##Orientações
+## Orientações
 
 Na página Transactions, adicione novas transações usando a primeira linha da tabela.
 

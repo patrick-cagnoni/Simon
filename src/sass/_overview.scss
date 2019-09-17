@@ -1,0 +1,31 @@
+
+.overview-content {
+
+    margin: 0 auto;
+    width: 96%;
+}
+.overview-tabs {
+    display: flex; 
+    background-color: #3E3E3E;
+    justify-content: center;
+    padding: 20px 0px;
+}
+
+.tab-content{
+    display: grid;
+    grid-template-columns: 60% 30%;
+}
+
+.overview-tab-title.selected {
+    border-bottom: 2px solid $color-primary;
+}
+
+.overview-tab-title {
+    padding-bottom: 10px;
+    text-transform: uppercase;
+    cursor: pointer;
+}
+
+.tab-graph {
+    padding: 60px 0;
+}

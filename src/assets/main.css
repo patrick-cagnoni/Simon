@@ -133,7 +133,7 @@ ul {
 .dateSlider {
   width: 100%;
   text-align: center;
-  padding: 40px 0;
+  padding: 30px 0;
   display: flex;
   justify-content: center;
   align-items: center; }
@@ -155,3 +155,28 @@ ul {
 .btn-dateslider:hover {
   color: #fff;
   background-color: #BE5504; }
+
+.overview-content {
+  margin: 0 auto;
+  width: 96%; }
+
+.overview-tabs {
+  display: flex;
+  background-color: #3E3E3E;
+  justify-content: center;
+  padding: 20px 0px; }
+
+.tab-content {
+  display: grid;
+  grid-template-columns: 60% 30%; }
+
+.overview-tab-title.selected {
+  border-bottom: 2px solid #F36A58; }
+
+.overview-tab-title {
+  padding-bottom: 10px;
+  text-transform: uppercase;
+  cursor: pointer; }
+
+.tab-graph {
+  padding: 60px 0; }

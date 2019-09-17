@@ -6,7 +6,6 @@ import AppDialog from '../../../components/AppDialog/AppDialog';
 import { ADD_TRANSACTION, DELETE_TRANSACTION, UPDATE_TRANSACTION } from '../../../store/reducers/transactionsReducer';
 import { format } from 'date-fns'
 import * as uniqid from 'uniqid';
-import { compare } from '../../../util';
 
 const TransactionsTable = props => {
 
@@ -19,40 +18,38 @@ const TransactionsTable = props => {
     const categoriesOpt = {
 
         income: [
-            {label: "Paycheck",         value: "paycheck"},
-            {label: "Dividend",         value: "dividend"},
-            {label: "Allowance",        value: "allowance"},
-            {label: "Bonus",            value: "bonus"},
-            {label: "Other",            value: "other"}
+            "Paycheck",
+            "Paycheck",
+            "Allowance",
+            "Bonus",
+            "Other"
         ],
         expense: [
-
-            {label: "Food",             value: "food"},
-            {label: "Social Life",      value: "social-life"},
-            {label: "Transportation",   value: "transportation"},
-            {label: "Beauty",           value: "beauty"},
-            {label: "Health",           value: "health"},
-            {label: "Education",        value: "education"},
-            {label: "Gift",             value: "gift"},
-            {label: "Household",        value: "household"},
-            {label: "Insurance",        value: "insurance"},
-            {label: "Tax",              value: "tax"},
-            {label: "Other",            value: "other"},
-        
+            "Food",
+            "Social Life", 
+            "Transportation", 
+            "Beauty",
+            "Health",
+            "Education",
+            "Gift",
+            "Household",
+            "Insurance",
+            "Tax", 
+            "Other"
         ]
     
     }
 
     const typeOpt = [
-        {label: "Expense", value: "expense"},
-        {label: "Income", value: "income"}
+        "Expense",
+        "Income"
     ]
 
     //STATE ----------------------------------------------------------------------------------
 
     const [date, setDate] = useState(format(new Date(), 'yyyy-MM-dd'));
-    const [type, setType] = useState('expense');
-    const [category, setCategory] = useState(categoriesOpt.expense[0].value);
+    const [type, setType] = useState('Expense');
+    const [category, setCategory] = useState('Beauty');
     const [notes, setNotes] = useState('');
     const [amount, setAmount] = useState(0);
 
@@ -92,13 +89,11 @@ const TransactionsTable = props => {
 
     function reset(){
         setDate(format(new Date(), 'yyyy-MM-dd'));
-        setType('expense');
-        setCategory(categoriesOpt[type][0].value);
+        setType('Expense');
+        setCategory('Beauty');
         setNotes("");
         setAmount(0);
     }
-
-    
 
     //END FUNCTIONS ----------------------------------------------------------------------------
 
@@ -135,7 +130,7 @@ const TransactionsTable = props => {
                                                     className="select-type"
                                                     value={type}>
                                                     {typeOpt.map(t => (
-                                                        <option key={t.value} value={t.value}>{t.label}</option>
+                                                        <option key={t} value={t}>{t}</option>
                                                     ))}
                                                 </select>
                                             </td>
@@ -144,8 +139,8 @@ const TransactionsTable = props => {
                                                 onChange={e => setCategory(e.target.value)} 
                                                 className="select-category"
                                                 value={category}>
-                                                    {categoriesOpt[type].sort((a,b) => compare(a,b)).map(cat =>(
-                                                        <option key={cat.value} value={cat.value}>{cat.label}</option>
+                                                    {categoriesOpt[type.toLowerCase()].sort().map(cat =>(
+                                                        <option key={cat} value={cat}>{cat}</option>
                                                     ))}
                                                 </select>
                                                 </td>

@@ -2,8 +2,6 @@ import React, {useState} from 'react';
 import { FontAwesomeIcon as Icon } from '@fortawesome/react-fontawesome';
 import { faEdit, faTrash, faSave, faWindowClose } from '@fortawesome/free-solid-svg-icons';
 
-import { compare } from '../../../util';
-
 const TransactionRow = props => {
 
     const { transaction, onUpdateTransaction, onDeleteClick, categoriesOpt, typeOpt } = props;
@@ -34,18 +32,18 @@ const TransactionRow = props => {
                 <td><input type="date" value={date} onChange={e => setDate(e.target.value)}/></td>
                 <td>
                     <select 
-                        onChange={e => {setType(e.target.value); setCategory(categoriesOpt[e.target.value][0].value)}} 
+                        onChange={e => {setType(e.target.value)}} 
                         value={type} 
                         className="select-type">
                         {typeOpt.map(t => (
-                            <option key={t.value}value={t.value} >{t.label}</option>
+                            <option key={t}value={t} >{t}</option>
                         ))}
                     </select>
                 </td>
                 <td>
                     <select onChange={e => setCategory(e.target.value)} value={category} className="select-category">
-                        {categoriesOpt[type].sort((a,b) => compare(a,b)).map(cat =>(
-                            <option key={cat.value}value={cat.value}>{cat.label}</option>
+                        {categoriesOpt[type.toLowerCase()].sort().map(cat =>(
+                            <option key={cat}value={cat}>{cat}</option>
                         ))}
                     </select>
                     </td>

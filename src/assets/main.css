@@ -25,6 +25,10 @@ ul {
 .disable-link {
   pointer-events: none; }
 
+.no-data {
+  width: 100%;
+  margin-top: 50px; }
+
 .content-grid {
   display: grid;
   grid-template-rows: 70px 1fr; }
@@ -156,9 +160,13 @@ ul {
   color: #fff;
   background-color: #BE5504; }
 
+.overview {
+  margin-bottom: 60px; }
+
 .overview-content {
   margin: 0 auto;
-  width: 96%; }
+  width: 96%;
+  min-height: 50vh; }
 
 .overview-tabs {
   display: flex;
@@ -171,7 +179,7 @@ ul {
   grid-template-columns: 60% 30%; }
 
 .overview-tab-title.selected {
-  border-bottom: 2px solid #F36A58; }
+  border-bottom: 2px solid #fff; }
 
 .overview-tab-title {
   padding-bottom: 10px;
@@ -179,4 +187,8 @@ ul {
   cursor: pointer; }
 
 .tab-graph {
-  padding: 60px 0; }
+  padding: 60px 0;
+  margin: 0 auto; }
+
+.tab-table {
+  margin-top: 100px; }

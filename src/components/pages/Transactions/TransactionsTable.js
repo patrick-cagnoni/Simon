@@ -19,7 +19,6 @@ const TransactionsTable = props => {
 
         income: [
             "Paycheck",
-            "Paycheck",
             "Allowance",
             "Bonus",
             "Other"
@@ -51,7 +50,7 @@ const TransactionsTable = props => {
     const [type, setType] = useState('Expense');
     const [category, setCategory] = useState('Beauty');
     const [notes, setNotes] = useState('');
-    const [amount, setAmount] = useState(0);
+    const [amount, setAmount] = useState(null);
 
     const [dialogShow, setDialogShow] = useState(false);
     const [transactionId, setTransactionId] = useState("");
@@ -92,7 +91,7 @@ const TransactionsTable = props => {
         setType('Expense');
         setCategory('Beauty');
         setNotes("");
-        setAmount(0);
+        setAmount("");
     }
 
     //END FUNCTIONS ----------------------------------------------------------------------------
@@ -126,7 +125,7 @@ const TransactionsTable = props => {
                                             </td>
                                             <td>
                                                 <select 
-                                                    onChange={e => setType(e.target.value)} 
+                                                    onChange={e => {setType(e.target.value); setCategory(categoriesOpt[e.target.value.toLowerCase()][0])}} 
                                                     className="select-type"
                                                     value={type}>
                                                     {typeOpt.map(t => (
@@ -139,7 +138,7 @@ const TransactionsTable = props => {
                                                 onChange={e => setCategory(e.target.value)} 
                                                 className="select-category"
                                                 value={category}>
-                                                    {categoriesOpt[type.toLowerCase()].sort().map(cat =>(
+                                                    {categoriesOpt[type.toLowerCase()].map(cat =>(
                                                         <option key={cat} value={cat}>{cat}</option>
                                                     ))}
                                                 </select>
@@ -150,7 +149,7 @@ const TransactionsTable = props => {
                                                 onChange={e => setNotes(e.target.value)}  
                                                 value={notes}></textarea></td>
                                             <td><input type="number" value={amount} className="input-amount" onChange={e => setAmount(e.target.value > 0? e.target.value: 0)}/></td>
-                                            <td className="text-center"><button className="btn btn-primary" onClick={handleAddTransaction} disabled={(date === "" || amount === 0)}>Add</button></td>
+                                            <td className="text-center"><button className="btn btn-primary" onClick={handleAddTransaction} disabled={(date === "" || !amount)}>Add</button></td>
                                         </tr>
                                     </tbody>
                                 </table>

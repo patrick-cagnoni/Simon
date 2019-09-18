@@ -10,7 +10,7 @@ const TransactionRow = props => {
     const [type, setType] = useState(transaction.type);
     const [category, setCategory] = useState(transaction.category);
     const [notes, setNotes] = useState(transaction.notes);
-    const [amount, setAmount] = useState(transaction.amount);
+    const [amount, setAmount] = useState(parseFloat(transaction.amount).toFixed(2));
 
     function handleSave(){
 
@@ -71,7 +71,7 @@ const TransactionRow = props => {
                 <td className="col-type">{transaction.type}</td>
                 <td className="col-category">{transaction.category}</td>
                 <td className="col-notes">{transaction.notes}</td>
-                <td className={`text-${transaction.type === 'expense'? 'danger': 'success'} col-amount`}>$ {transaction.amount}</td>
+                <td className={`text-${transaction.type === 'Expense'? 'danger': 'success'} col-amount`}>$ {parseFloat(transaction.amount).toFixed(2)}</td>
                 <td className="transactions-cell-options col-options">
                     <button 
                         onClick={() => setEdit(true)}

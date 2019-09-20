@@ -35,12 +35,13 @@ ul {
 
 .app-grid {
   display: grid;
-  grid-template-columns: 1fr 4fr; }
+  grid-template-columns: 252px 1fr; }
 
 .sidebar {
   background: #3E3E3E;
   height: 100%;
-  min-height: 100vh; }
+  min-height: 100vh;
+  text-align: center; }
 
 .sidebar-link {
   color: #fff !important;
@@ -66,7 +67,7 @@ ul {
 
 .sidebar-icon {
   font-size: 1.5rem;
-  margin-left: 30px; }
+  margin-right: 15px; }
 
 .sidebar-brand {
   text-align: center;
@@ -192,3 +193,13 @@ ul {
 
 .tab-table {
   margin-top: 100px; }
+
+@media only screen and (max-width: 1366px) {
+  .app-grid {
+    grid-template-columns: 110px 1fr; }
+  .sidebar-brand-desc {
+    display: none; }
+  .sidebar-link-text {
+    display: none; }
+  .sidebar-icon {
+    margin: 0; } }

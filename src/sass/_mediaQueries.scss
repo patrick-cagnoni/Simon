@@ -1,0 +1,23 @@
+@media only screen and (max-width:1366px){
+
+    //APP---------------------------------------------------------------
+
+    .app-grid {
+        grid-template-columns: 110px 1fr;
+    }
+
+    //SIDEBAR-----------------------------------------------------------
+
+    .sidebar-brand-desc{
+        display: none; 
+    }
+
+    .sidebar-link-text {
+        display: none;
+    }
+
+    .sidebar-icon {
+        margin: 0;
+    }
+
+}

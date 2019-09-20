@@ -110,7 +110,7 @@ const TransactionsTable = props => {
                                             <th scope="col">Date</th>
                                             <th scope="col">Type</th>
                                             <th scope="col">Category</th>
-                                            <th scope="col">Notes</th>
+                                            <th scope="col">Description</th>
                                             <th scope="col">Amount</th>
                                             <th scope="col"></th>
                                         </tr>
@@ -143,13 +143,29 @@ const TransactionsTable = props => {
                                                     ))}
                                                 </select>
                                                 </td>
-                                            <td><textarea 
-                                                rows="1" 
-                                                className="textarea-notes"
-                                                onChange={e => setNotes(e.target.value)}  
-                                                value={notes}></textarea></td>
-                                            <td><input type="number" value={amount} className="input-amount" onChange={e => setAmount(e.target.value > 0? e.target.value: 0)}/></td>
-                                            <td className="text-center"><button className="btn btn-primary" onClick={handleAddTransaction} disabled={(date === "" || !amount)}>Add</button></td>
+                                            <td>
+                                                <input 
+                                                    className="textarea-notes"
+                                                    onChange={e => setNotes(e.target.value)}  
+                                                    value={notes}
+                                                    maxLength="17"
+                                                >
+                                                </input>
+                                            </td>
+                                            <td>
+                                                <input 
+                                                    type="number" 
+                                                    value={amount} 
+                                                    className="input-amount" 
+                                                    maxLength="5"
+                                                    onChange={e => setAmount(e.target.value > 0? e.target.value: 0)}/>
+                                            </td>
+                                            <td className="text-center">
+                                                <button 
+                                                    className="btn btn-primary" 
+                                                    onClick={handleAddTransaction} 
+                                                    disabled={(date === "" || !amount)}>Add</button>
+                                            </td>
                                         </tr>
                                     </tbody>
                                 </table>

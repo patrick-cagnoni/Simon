@@ -40,7 +40,7 @@ export default function transactionsReducer (state = initialState, action){
         case FILTER_TRANSACTIONS:{
 
             const filteredTransactions = state.transactions.filter(t => {
-                const date1 = parseISO(t.date, 'yyyy-MM-dd', new Date());
+                const date1 = new Date(t.date)
                 const date2 = action.date;
 
                 return isSameMonth(date1, date2);

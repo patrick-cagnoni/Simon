@@ -2,8 +2,8 @@ import React, {useState} from 'react';
 import { connect } from 'react-redux';
 import TransactionRow from './TransactionRow';
 import AppDialog from '../../../components/AppDialog/AppDialog';
+import { Link } from 'react-router-dom';
 
-import { ADD_TRANSACTION, DELETE_TRANSACTION, UPDATE_TRANSACTION } from '../../../store/reducers/transactionsReducer';
 import { format } from 'date-fns'
 import * as uniqid from 'uniqid';
 
@@ -15,29 +15,7 @@ const TransactionsTable = props => {
         updateTransaction, 
      } = props;
 
-    const categoriesOpt = {
-
-        income: [
-            "Paycheck",
-            "Allowance",
-            "Bonus",
-            "Other"
-        ],
-        expense: [
-            "Food",
-            "Social Life", 
-            "Transportation", 
-            "Beauty",
-            "Health",
-            "Education",
-            "Gift",
-            "Household",
-            "Insurance",
-            "Tax", 
-            "Other"
-        ]
     
-    }
 
     const typeOpt = [
         "Expense",
@@ -59,152 +37,27 @@ const TransactionsTable = props => {
 
     //FUNCTIONS -------------------------------------------------------------------------------
 
-    function handleAddTransaction(){
-        const transaction ={
-            id: uniqid(),
-            type,
-            date,
-            category,
-            notes,
-            amount
-        }
-        reset();
-        addTransaction(transaction);
-    }
-    
-    function handleDeleteClick(transactionId){
-        setTransactionId(transactionId);
-        setDialogShow(true);
-    }
-
-    function handleDeleteTransaction(){
-        setDialogShow(false);
-        deleteTransaction(transactionId);
-    }
-
-    function handleUpdateTransaction(transaction){
-        updateTransaction(transaction);
-    }
-
-    function reset(){
-        setDate(format(new Date(), 'yyyy-MM-dd'));
-        setType('Expense');
-        setCategory('Beauty');
-        setNotes("");
-        setAmount("");
-    }
-
     //END FUNCTIONS ----------------------------------------------------------------------------
 
     return ( 
         <React.Fragment>
+            <div className="transaction-add-btn-wrapper">
+                <Link className="btn btn-primary transaction-add-btn" to='/transactions/new'>add transaction</Link>
 
-            <div className="transactions-table card">
-                <table>
-                    <tbody>
-                        <tr>
-                            <td>
-                                <table className="table">
-                                    <thead className="thead-dark">
-                                        <tr>
-                                            <th scope="col">Date</th>
-                                            <th scope="col">Type</th>
-                                            <th scope="col">Category</th>
-                                            <th scope="col">Description</th>
-                                            <th scope="col">Amount</th>
-                                            <th scope="col"></th>
-                                        </tr>
-                                    </thead>
-                                    <tbody>
-                                        <tr className="row-add">
-                                            <td>
-                                                <input 
-                                                type="date" 
-                                                value={date} 
-                                                onChange={e => setDate(e.target.value)}/>
-                                            </td>
-                                            <td>
-                                                <select 
-                                                    onChange={e => {setType(e.target.value); setCategory(categoriesOpt[e.target.value.toLowerCase()][0])}} 
-                                                    className="select-type"
-                                                    value={type}>
-                                                    {typeOpt.map(t => (
-                                                        <option key={t} value={t}>{t}</option>
-                                                    ))}
-                                                </select>
-                                            </td>
-                                            <td>
-                                                <select 
-                                                onChange={e => setCategory(e.target.value)} 
-                                                className="select-category"
-                                                value={category}>
-                                                    {categoriesOpt[type.toLowerCase()].map(cat =>(
-                                                        <option key={cat} value={cat}>{cat}</option>
-                                                    ))}
-                                                </select>
-                                                </td>
-                                            <td>
-                                                <input 
-                                                    className="textarea-notes"
-                                                    onChange={e => setNotes(e.target.value)}  
-                                                    value={notes}
-                                                    maxLength="17"
-                                                >
-                                                </input>
-                                            </td>
-                                            <td>
-                                                <input 
-                                                    type="number" 
-                                                    value={amount} 
-                                                    className="input-amount" 
-                                                    maxLength="5"
-                                                    onChange={e => setAmount(e.target.value > 0? e.target.value: 0)}/>
-                                            </td>
-                                            <td className="text-center">
-                                                <button 
-                                                    className="btn btn-primary" 
-                                                    onClick={handleAddTransaction} 
-                                                    disabled={(date === "" || !amount)}>Add</button>
-                                            </td>
-                                        </tr>
-                                    </tbody>
-                                </table>
-                            </td>
-                        </tr>
-                    <tr>
-                        <td>
-                            <div className="table-content">
-                                <table className="table table-hover ">
-                                    <tbody>
-                                        {transactions.map(
-                                            transaction => {
-                                                return (
-                                                <TransactionRow 
-                                                    key={transaction.id}
-                                                    transaction={transaction}
-                                                    onUpdateTransaction={handleUpdateTransaction}
-                                                    onDeleteClick={handleDeleteClick}
-                                                    onDeleteTransaction={handleDeleteTransaction}
-                                                    categoriesOpt={categoriesOpt}
-                                                    typeOpt={typeOpt}
-                                                    />
-                                                )
-                                            }
-                                        )}
-                                    </tbody>
-                                </table>
-                            </div>
-                        </td>
-                    </tr>
-                    </tbody>
-                </table>
             </div>
+            <ul>
+                {transactions.map(t => (
+                    <li>
+                        {t.category}
+                    </li>
+                ))}
+            </ul>
             <AppDialog 
                 title={'Remove Transaction'}
                 message={`Do you want to remove this transaction?`}
                 show={dialogShow}
                 onClose={() => setDialogShow(false)}
-                onConfirm={handleDeleteTransaction}                    
+                // onConfirm={handleDeleteTransaction}                    
           />
         </React.Fragment>
      );
@@ -217,33 +70,6 @@ const mapStateToProps = state => {
     }
 }
 
-const mapDispatchToProps = dispatch => {
-    return {
 
-        addTransaction: transaction => {
-            const action ={
-                type: ADD_TRANSACTION,
-                transaction
-            } 
-            dispatch(action)
-        },
-
-        deleteTransaction: transactionId => {
-            const action ={
-                type: DELETE_TRANSACTION,
-                transactionId
-            } 
-            dispatch(action)
-        },
-
-        updateTransaction: transaction => {
-            const action ={
-                type: UPDATE_TRANSACTION,
-                transaction
-            } 
-            dispatch(action)
-        },
-    }
-}
  
-export default connect(mapStateToProps, mapDispatchToProps)(TransactionsTable);
+export default connect(mapStateToProps)(TransactionsTable);

@@ -12,7 +12,16 @@ code {
 
 ul {
   padding: 0;
+  margin: 0;
+  list-style: none; }
+
+input[type=number]::-webkit-outer-spin-button,
+input[type=number]::-webkit-inner-spin-button {
+  -webkit-appearance: none;
   margin: 0; }
+
+input[type=number] {
+  -moz-appearance: textfield; }
 
 .content {
   background: #FAFAFA; }
@@ -28,6 +37,10 @@ ul {
 .no-data {
   width: 100%;
   margin-top: 50px; }
+
+.page-title {
+  text-align: center;
+  margin-top: 20px; }
 
 .content-grid {
   display: grid;
@@ -88,52 +101,57 @@ ul {
 .navbar-brand {
   margin-left: 10px; }
 
-.transactions-cell-options {
+.transaction-form {
+  width: 500px;
+  margin: 60px auto; }
+
+.transaction-type-wrapper {
+  width: 100%;
   display: flex;
-  justify-content: space-around; }
+  margin-bottom: 30px; }
 
-.transactions-table {
-  margin: 0 auto;
-  width: 96%;
-  margin-bottom: 80px; }
+.transaction-type {
+  width: 50%;
+  padding: 20px 0;
+  background-color: #e3e3e3;
+  text-align: center;
+  cursor: pointer;
+  color: #888;
+  transition: color .3s; }
 
-.table-content {
-  height: 520px;
-  overflow-y: auto; }
+.transaction-type.selected {
+  color: #fff; }
 
-.input-amount {
-  width: 80px;
-  text-align: right; }
+.type-expense.selected {
+  background-color: #960018; }
+
+.type-income.selected {
+  background-color: #50C878; }
 
 .select-type, .select-category {
   width: 130px; }
 
-.table {
-  margin-bottom: 0; }
+.form-grid {
+  display: grid;
+  grid-template-columns: 40% 60%;
+  row-gap: 20px; }
 
-.table td {
-  vertical-align: middle; }
+.transaction-form input, .transaction-form select {
+  width: 100%; }
 
-.textarea-notes {
-  width: 150px; }
+.transaction-form-btn {
+  margin-top: 30px;
+  grid-column: 2/3;
+  width: 100px;
+  justify-self: end; }
 
-.row-add {
-  background: #e3e3e3; }
+.transaction-add-btn {
+  padding: 30px 0;
+  width: 700px; }
 
-.col-date {
-  width: 28%; }
-
-.col-type {
-  width: 21%; }
-
-.col-category {
-  width: 21%; }
-
-.col-notes {
-  width: 20%; }
-
-.col-amount {
-  width: 10%; }
+.transaction-add-btn-wrapper {
+  width: 100%;
+  text-align: center; }
 
 .dateSlider {
   width: 100%;

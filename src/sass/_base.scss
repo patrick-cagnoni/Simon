@@ -18,7 +18,18 @@ body {
   ul {
     padding: 0;
     margin: 0; 
+    list-style: none;
   }
+
+  input[type=number]::-webkit-outer-spin-button,
+  input[type=number]::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
+
+input[type=number] {
+    -moz-appearance:textfield;
+}
 
   .content {
     background: #FAFAFA;
@@ -37,4 +48,9 @@ body {
   .no-data {
     width: 100%;
     margin-top: 50px;
+  }
+
+  .page-title {
+    text-align: center;
+    margin-top: 20px;
   }

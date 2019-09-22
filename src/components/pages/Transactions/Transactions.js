@@ -1,8 +1,9 @@
 import React from 'react';
-import DateSlider from '../../DateSlider/DateSlider';
-import TransactionsTable from './TransactionsTable';
-import Transaction from './Transaction';
-import {Route, Switch, Redirect} from 'react-router-dom';
+import TransactionsContent from './TransactionsContent';
+import TransactionsHeader from './TransactionsHeader';
+import NewTransaction from './NewTransaction';
+import EditTransaction from './EditTransaction';
+import { Route, Switch } from 'react-router-dom';
 
 const Transactions = () => {
 
@@ -14,11 +15,12 @@ const Transactions = () => {
                     exact path="/transactions/" 
                     render={() => (
                     <React.Fragment>
-                        <DateSlider />
-                        <TransactionsTable />
+                        <TransactionsHeader />
+                        <TransactionsContent />
                     </React.Fragment>)}
                 /> 
-                <Route exact patch="/transactions/new" render={() => <Transaction action="new"/>}/>
+                <Route exact path="/transactions/edit/:id" component={EditTransaction}/> 
+                <Route exact path="/transactions/new" component={NewTransaction}/>
             </Switch>
             
         </React.Fragment>

@@ -1,16 +1,146 @@
+//TRANSACTIONS HEADER -----------------------------------------
+
+.transactions-header {
+    background-color: $color-primary;
+    color: #fff;
+    width: 90%;
+    margin: 0 auto;
+}
+
+.transactions-total-wrapper {
+    width: 100%;
+    background-color: $color-secondary;
+    color: #fff;
+    padding: 8px 0;
+    font-size: 1.1rem;
+}
+
+.transactions-total {
+    display: grid;
+    grid-template-columns: repeat(3,100px);
+    justify-content: center;
+    text-align: center;
+}
+
+
+//END TRANSACTIONS HEADER ----------------------------------
+
+
+//TRANSACTIONS CONTENT -------------------------------------
+
+.transaction-add-btn-wrapper{
+    text-align: center;
+}
+
+.transaction-add-btn {
+    background-color: #960018;
+    color: #fff;
+    width: 50px; 
+    height: 50px;
+    display: block;
+    border-radius: 50%;
+    font-size: 1.8rem;
+    text-decoration: none !important;
+    margin: 1% 0 0 2%;
+    position: fixed;
+}
+
+.transaction-add-btn:hover {
+    color: #fff;
+}
+
+.transactions-content {
+    width: 80%;
+    margin: 20px auto 80px auto;
+}
+
+.transaction-day {
+    margin-bottom: 20px;
+    border: 1px solid #eee;
+    padding: 12px;
+}
+
+.transaction-day-header {
+    padding: 0px 30px;
+    border-bottom: 1px solid #ccc;
+    display: flex;
+    justify-content: space-between;
+}
+
+.transaction-day-monthday {
+    font-size: 2.4rem;
+}
+
+.weekday-span {
+    margin-left: 8px;
+    padding: 2px 8px;
+    font-size: 0.8rem;
+    background-color: #888;
+    color: #ffff;
+}
+
+.transaction-day-total {
+    display: grid;
+    grid-template-columns: repeat(2,80px);
+    grid-template-rows: repeat(2, 10px); 
+    text-align: center;
+    font-size: 0.9rem;
+}
+
+.transaction-day-list {
+    width: 95%;
+    margin: 0 auto;
+    padding: 10px 0 ;
+}
+
+.transaction-day-item {
+    padding: 8px 15px;
+    display: flex;
+    justify-content: space-evenly;
+    cursor: pointer;
+    background-color: #eee;
+    color: #333;
+}
+
+.transaction-day-item:hover {
+    background-color: #ccc;
+    color: #333;
+}
+
+.transaction-day-item-category {
+    flex: 0 1 20%;
+}
+.transaction-day-item-notes {
+    flex: 0 1 50%;
+}
+.transaction-day-item-amount {
+    flex: 0 1 30%;
+    display: flex;
+    text-align: end;
+}
+.transaction-day-item-amount-income {
+    flex: 0 1 50%;
+}
+.transaction-day-item-amount-expense {
+    flex: 0 1 50%;
+}
+
+//END TRANSACTIONS CONTENT -----------------------------
+
+//NEW/EDIT TRANSACTION ---------------------------------
 
 .transaction-form{
     width: 500px;
     margin: 60px auto;
 }
 
-.transaction-type-wrapper {
+.transaction-form-type-wrapper {
     width: 100%;
     display: flex;
     margin-bottom: 30px;
 }
 
-.transaction-type {
+.transaction-form-type {
     width: 50%;
     padding: 20px 0;
     background-color: #e3e3e3;
@@ -20,46 +150,39 @@
     transition: color .3s;
 }
 
-.transaction-type.selected {
+.transaction-form-type.selected {
     color: #fff;
 
 }
-.type-expense.selected {
+.transaction-form-type-expense.selected {
     background-color: #960018;
 }
 
-.type-income.selected {
+.transaction-form-type-income.selected {
     background-color: #50C878; 
 }
 
-.select-type, .select-category{
+.transaction-form select{
     width: 130px;
-}
-
-.form-grid {
-    display: grid;
-    grid-template-columns: 40% 60%;
-    row-gap: 20px;
 }
 
 .transaction-form input, .transaction-form select {
     width:100%;
 }
-.transaction-form-btn {
+
+.transaction-form-grid {
+    display: grid;
+    grid-template-columns: 40% 60%;
+    row-gap: 20px;
+}
+
+.transaction-form-footer {
     margin-top: 30px;
     grid-column: 2/3;
-    width: 100px;
     justify-self: end;
 }
 
-.transaction-add-btn {
-    padding: 30px 0;
-    width: 700px;
+.transaction-form-btn {
+    width: 100px;
 }
-
-.transaction-add-btn-wrapper{
-    width: 100%;
-    text-align: center;
-}
-
 

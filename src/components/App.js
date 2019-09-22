@@ -38,10 +38,10 @@ function App(props) {
     }, [transactions])
 
   return (
-    <div className="app-grid">
-      <Sidebar />
-      <div className="content-grid">
+    <div className="app">
         <Appbar />
+      <div className="content-grid">
+        <Sidebar />
         <Content />
       </div>
     </div>

@@ -8,6 +8,13 @@ const Appbar = props => {
 
     return ( 
         <nav className="navbar navbar-expand-sm">
+            <div className="navbar-brand">
+                <Link 
+                    to="/" 
+                    className="site-name">
+                        <span style={{fontSize: '1.6rem'}}>SIMON</span> 
+                </Link>
+            </div>
             <button className="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarsExample03" aria-controls="navbarsExample03" aria-expanded="false" aria-label="Toggle navigation">
                 <span className="navbar-toggler-icon"></span>
             </button>

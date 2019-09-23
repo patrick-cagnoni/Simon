@@ -95,7 +95,7 @@ const Overview = props => {
                         >Income | $ {totalByType.income.toFixed(2)}</div>
                     </div>
                 </div>
-                {transactions.length > 0?
+                {filteredTransactions.length > 0?
                     <div className="overview-tab-content">
                         <OverviewTabContent chartData={chartData} tableData={tableData(totalByCategory)}/>
                     </div>

@@ -32,10 +32,30 @@ h1, h2, h3, h4, h5 {
 .content {
   background: #FAFAFA; }
 
-.card {
+.card-info {
+  width: 175px;
+  height: 96px;
+  color: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: center; }
+
+.card-shadow {
   -webkit-box-shadow: 11px 11px 7px -4px rgba(0, 0, 0, 0.75);
   -moz-box-shadow: 11px 11px 7px -4px rgba(0, 0, 0, 0.75);
   box-shadow: 9px 9px 5px -2px rgba(0, 0, 0, 0.65); }
+
+.card-green {
+  background-color: #28B779; }
+
+.card-orange {
+  background-color: #DA542E; }
+
+.card-blue {
+  background-color: #2255A4; }
+
+.card-yellow {
+  background-color: #FFB848; }
 
 .disable-link {
   pointer-events: none; }
@@ -44,23 +64,26 @@ h1, h2, h3, h4, h5 {
   width: 100%;
   margin-top: 50px; }
 
+.page-header {
+  margin: 0 auto;
+  background-color: #E9ECEF; }
+
 .page-title {
-  text-align: center;
-  padding-top: 10px; }
+  margin-left: 3%;
+  padding-top: 10px;
+  font-size: 1.6rem; }
+
+.content {
+  background-color: #F4F7FA; }
 
 .content-grid {
   display: grid;
-  grid-template-columns: 1fr 4fr; }
+  grid-template-columns: 1fr 6fr; }
 
 .sidebar {
   background: #3E3E3E;
   height: 100%;
-  min-height: 100vh;
-  text-align: center; }
-
-.sidebar-link {
-  color: #fff !important;
-  list-style: none; }
+  min-height: 100vh; }
 
 .sidebar-link:hover {
   background: #EDEDED;
@@ -68,10 +91,11 @@ h1, h2, h3, h4, h5 {
   transition: all 0.3s; }
 
 .sidebar-link {
+  list-style: none;
   display: block;
   width: 100%;
   color: #fff !important;
-  padding: 40px 0;
+  padding: 15px 0 15px 20px;
   border-bottom: 1px solid #333;
   cursor: pointer;
   text-decoration: none !important; }
@@ -99,23 +123,16 @@ h1, h2, h3, h4, h5 {
   padding: 30px 0;
   color: #F36A58 !important; }
 
-.transactions-header {
-  background-color: #F36A58;
-  color: #fff;
-  width: 90%;
-  margin: 0 auto; }
-
 .transactions-total-wrapper {
   width: 100%;
-  background-color: #3E3E3E;
   color: #fff;
   padding: 8px 0;
   font-size: 1.1rem; }
 
 .transactions-total {
-  display: grid;
-  grid-template-columns: repeat(3, 100px);
-  justify-content: center;
+  margin-top: 20px;
+  display: flex;
+  justify-content: space-evenly;
   text-align: center; }
 
 .transaction-add-btn-wrapper {
@@ -142,7 +159,7 @@ h1, h2, h3, h4, h5 {
 
 .transaction-day {
   margin-bottom: 20px;
-  border: 1px solid #eee;
+  background-color: #fff;
   padding: 12px; }
 
 .transaction-day-header {
@@ -178,11 +195,10 @@ h1, h2, h3, h4, h5 {
   display: flex;
   justify-content: space-evenly;
   cursor: pointer;
-  background-color: #eee;
   color: #333; }
 
 .transaction-day-item:hover {
-  background-color: #ccc;
+  background-color: #EEE;
   color: #333; }
 
 .transaction-day-item-category {
@@ -265,14 +281,6 @@ h1, h2, h3, h4, h5 {
 
 .dateSlider .btn {
   cursor: pointer; }
-
-.btn-dateslider {
-  background-color: #F36A58;
-  color: #fff; }
-
-.btn-dateslider:hover {
-  color: #fff;
-  background-color: #BE5504; }
 
 .overview {
   margin-bottom: 60px; }

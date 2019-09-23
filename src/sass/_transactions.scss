@@ -1,24 +1,19 @@
 //TRANSACTIONS HEADER -----------------------------------------
 
-.transactions-header {
-    background-color: $color-primary;
-    color: #fff;
-    width: 90%;
-    margin: 0 auto;
+.page-header-transactions { 
 }
 
 .transactions-total-wrapper {
     width: 100%;
-    background-color: $color-secondary;
     color: #fff;
     padding: 8px 0;
     font-size: 1.1rem;
 }
 
 .transactions-total {
-    display: grid;
-    grid-template-columns: repeat(3,100px);
-    justify-content: center;
+    margin-top: 20px;
+    display: flex;
+    justify-content: space-evenly;
     text-align: center;
 }
 
@@ -56,7 +51,7 @@
 
 .transaction-day {
     margin-bottom: 20px;
-    border: 1px solid #eee;
+    background-color: #fff;
     padding: 12px;
 }
 
@@ -98,12 +93,11 @@
     display: flex;
     justify-content: space-evenly;
     cursor: pointer;
-    background-color: #eee;
     color: #333;
 }
 
 .transaction-day-item:hover {
-    background-color: #ccc;
+    background-color: #EEE;
     color: #333;
 }
 

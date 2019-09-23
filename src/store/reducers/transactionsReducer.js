@@ -1,5 +1,5 @@
 
-import { isSameMonth, parseISO, isSameDay } from 'date-fns'
+import { isSameMonth, isSameDay } from 'date-fns'
 
 export const SELECT_TRANSACTION = "SELECT_TRANSACTION";
 export const ADD_TRANSACTION = "ADD_TRANSACTION";

@@ -17,7 +17,7 @@ const TransactionsContent = props => {
 
                 {transactionsByDay.map(tday => (
 
-                    <div className="transaction-day card">
+                    <div className="transaction-day card-shadow">
 
                         <div className="transaction-day-header">
 

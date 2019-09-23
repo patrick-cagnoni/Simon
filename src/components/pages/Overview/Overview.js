@@ -2,16 +2,22 @@ import React,{useState} from 'react';
 import { connect } from 'react-redux';
 import DateSlider from '../../DateSlider/DateSlider';
 import OverviewTabContent from './OverviewTabContent';
+import { isSameMonth } from 'date-fns'
 
 
 const Overview = props => {
 
     const [tab, setTab] = useState('Expense');
 
-    const { transactions } = props;
+    const { transactions, date } = props;
 
-        const totalByType = calculateTotalByType(transactions);
-        const totalByCategory = calculateTotalByCategory(transactions.filter(t => t.type === tab));
+        const filteredTransactions = transactions.filter(t => (
+            isSameMonth(new Date(t.date), new Date(date))
+
+        ))    
+
+        const totalByType = calculateTotalByType(filteredTransactions);
+        const totalByCategory = calculateTotalByCategory(filteredTransactions.filter(t => t.type === tab));
         const chartData = {
             options:{
                 labels: Object.keys(totalByCategory),
@@ -70,7 +76,10 @@ const Overview = props => {
 
     return ( 
         <div className="overview">
-            <DateSlider />
+            <div className="page-header page-header-overview">
+                <h4 className="page-title">OVERVIEW</h4>
+                <DateSlider />
+            </div>
             <div className="overview-content card">
                 <div className="overview-tabs">
                     <div className="overview-tab tab-expense">
@@ -101,7 +110,8 @@ const Overview = props => {
  
 const mapStateToProps = state =>{
     return {
-        transactions: state.transactions.filteredTransactions
+        transactions: state.transactions.transactions,
+        date: state.dateSlider.date
     }
 }
 export default connect(mapStateToProps)(Overview);

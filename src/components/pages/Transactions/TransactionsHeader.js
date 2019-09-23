@@ -25,17 +25,18 @@ const TransactionsHeader = props => {
     return ( 
         <div className="transactions-header">
 
-            <div className="page-title">
-                <h4>TRANSACTIONS</h4>
-            </div>
+            <div className="page-header page-header-transactions">
 
-            <DateSlider />
+                <h1 className="page-title">TRANSACTIONS</h1>
+                <DateSlider />
+
+            </div>
 
             <div className="transactions-total-wrapper">
                 <div className="transactions-total">
-                    <div className="transactions-total-income text-success font-weight-bold">Income <br/> $ {total.totalIncome}</div>
-                    <div className="transactions-total-expense text-danger font-weight-bold">Expense <br/> $ {total.totalExpense}</div>
-                    <div className="transactions-total-balance text-light font-weight-bold">Balance <br/> $ {total.totalIncome - total.totalExpense}</div>
+                    <div className="transactions-total-income card-info card-green"><div>Income <br/><span className="font-weight-bold">{total.totalIncome}</span>$ </div></div>
+                    <div className="transactions-total-expense card-info card-orange"><div>Expense <br/><span className="font-weight-bold">{total.totalExpense}</span>$ </div></div>
+                    <div className="transactions-total-balance card-info card-yellow"><div>Balance <br/><span className="font-weight-bold">$ {total.totalIncome - total.totalExpense}</span></div></div>
                 </div>
             </div>
 

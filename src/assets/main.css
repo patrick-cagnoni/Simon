@@ -32,6 +32,14 @@ h1, h2, h3, h4, h5 {
 .content {
   background: #FAFAFA; }
 
+.card {
+  background-color: #fff;
+  display: flex;
+  flex-direction: column;
+  border: 1px solid rgba(26, 54, 126, 0.125);
+  border-radius: 0.25rem;
+  padding: 20px; }
+
 .card-info {
   width: 175px;
   height: 96px;
@@ -57,6 +65,9 @@ h1, h2, h3, h4, h5 {
 .card-yellow {
   background-color: #FFB848; }
 
+.card-red {
+  background-color: #C21807; }
+
 .disable-link {
   pointer-events: none; }
 
@@ -66,12 +77,16 @@ h1, h2, h3, h4, h5 {
 
 .page-header {
   margin: 0 auto;
-  background-color: #E9ECEF; }
+  background-color: #E9ECEF;
+  width: 100%; }
 
 .page-title {
   margin-left: 3%;
   padding-top: 10px;
   font-size: 1.6rem; }
+
+.card-md {
+  width: 400px; }
 
 .content {
   background-color: #F4F7FA; }
@@ -108,12 +123,6 @@ h1, h2, h3, h4, h5 {
   font-size: 1.5rem;
   margin-right: 15px; }
 
-.site-name {
-  text-decoration: none !important; }
-
-.site-name:hover span {
-  color: #fff !important; }
-
 .navbar {
   height: 70px;
   border-bottom: 2px solid #ccc; }
@@ -121,7 +130,8 @@ h1, h2, h3, h4, h5 {
 .site-name {
   text-align: center;
   padding: 30px 0;
-  color: #F36A58 !important; }
+  color: #F36A58 !important;
+  text-decoration: none !important; }
 
 .transactions-total-wrapper {
   width: 100%;
@@ -139,7 +149,7 @@ h1, h2, h3, h4, h5 {
   text-align: center; }
 
 .transaction-add-btn {
-  background-color: #960018;
+  background-color: #C21807;
   color: #fff;
   width: 50px;
   height: 50px;
@@ -240,10 +250,10 @@ h1, h2, h3, h4, h5 {
   color: #fff; }
 
 .transaction-form-type-expense.selected {
-  background-color: #960018; }
+  background-color: #C21807; }
 
 .transaction-form-type-income.selected {
-  background-color: #50C878; }
+  background-color: #28B779; }
 
 .transaction-form select {
   width: 130px; }
@@ -272,8 +282,7 @@ h1, h2, h3, h4, h5 {
   justify-content: center;
   align-items: center; }
 
-.dateSlider .date {
-  padding: 0 25px;
+.dateSlider .dateSlider-date {
   width: 350px; }
 
 .dateSlider .icon {
@@ -283,37 +292,33 @@ h1, h2, h3, h4, h5 {
   cursor: pointer; }
 
 .overview {
-  margin-bottom: 60px; }
+  margin-bottom: 60px;
+  width: 100%; }
 
 .overview-content {
   margin: 40px auto;
-  width: 96%;
-  min-height: 50vh; }
-
-.overview-tabs {
-  display: flex;
-  background-color: #3E3E3E;
-  justify-content: center;
-  padding: 20px 0px; }
-
-.tab-content {
+  min-height: 50vh;
   display: grid;
-  grid-template-columns: 60% 30%; }
+  grid-template-columns: repeat(2, 1fr); }
 
-.overview-tab-title.selected {
-  border-bottom: 2px solid #fff; }
+.overview-chart {
+  margin: 20px auto; }
 
-.overview-tab-title {
-  padding-bottom: 10px;
-  text-transform: uppercase;
-  cursor: pointer; }
+.overview-chart-header {
+  padding: 10px 0px;
+  text-align: center;
+  color: #fff;
+  margin-bottom: 30px;
+  font-size: 1.5rem; }
 
-.tab-graph {
-  padding: 60px 0;
-  margin: 0 auto; }
+.overview-table-wrapper {
+  margin-top: 30px; }
 
-.tab-table {
-  margin-top: 100px; }
+.chart-income {
+  background-color: #28B779; }
+
+.chart-expense {
+  background-color: #C21807; }
 
 @media only screen and (max-width: 1023px) {
   .sidebar-brand-desc {

@@ -1,23 +1,20 @@
-import React,{useState} from 'react';
+import React from 'react';
 import { connect } from 'react-redux';
 import DateSlider from '../../DateSlider/DateSlider';
-import OverviewTabContent from './OverviewTabContent';
-import { isSameMonth } from 'date-fns'
-
+import { isSameMonth } from 'date-fns';
+import OverviewChart from './OverviewChart';
 
 const Overview = props => {
 
-    const [tab, setTab] = useState('Expense');
-
     const { transactions, date } = props;
 
-        const filteredTransactions = transactions.filter(t => (
-            isSameMonth(new Date(t.date), new Date(date))
+    //filter transactions by selected month
+    const filteredTransactions = transactions.filter(t => (
+        isSameMonth(new Date(t.date), new Date(date))
+    ));  
 
-        ))    
-
-        const totalByType = calculateTotalByType(filteredTransactions);
-        const totalByCategory = calculateTotalByCategory(filteredTransactions.filter(t => t.type === tab));
+    function generateChartData(type){
+        const totalByCategory = calculateTotalByCategory(filteredTransactions.filter(t => t.type === type));
         const chartData = {
             options:{
                 labels: Object.keys(totalByCategory),
@@ -25,24 +22,28 @@ const Overview = props => {
             },
             series: Object.values(totalByCategory)
         }
-        const tableData = (totalByCategory) => {
-            let data =[];
-            for(let key in totalByCategory){
-                const amount = totalByCategory[key];
-                const total = Object.values(totalByCategory).reduce((acc, cur)=> acc + cur);
-                const percentage =  amount * 100 / total;
-                const category = key;
-                data.push(
-                    {
-                        percentage,
-                        category,
-                        amount  
-                    }
-                )
-            }
-            return data;
-        }
+        return chartData;
+    }
 
+    function generateTableData(type) {
+        let data =[];
+        const totalByCategory = calculateTotalByCategory(filteredTransactions.filter(t => t.type === type));
+
+        for(let key in totalByCategory){
+            const amount = totalByCategory[key];
+            const total = Object.values(totalByCategory).reduce((acc, cur)=> acc + cur);
+            const percentage =  amount * 100 / total;
+            const category = key;
+            data.push(
+                {
+                    percentage,
+                    category,
+                    amount  
+                }
+            )
+        }
+        return data;
+    }
 
     function calculateTotalByCategory(transactions){
         let obj = {};
@@ -58,51 +59,32 @@ const Overview = props => {
         return obj;
     }
 
-    function calculateTotalByType(transactions){
-        let expense = 0;
-        let income = 0;
-
-        transactions.forEach(t => {
-            if(t.type === 'Expense'){
-                expense = expense + parseFloat(t.amount);
-            }
-            else {
-                income = income + parseFloat(t.amount);
-            }
-        });
-
-        return { expense, income };
-    }
-
     return ( 
         <div className="overview">
-            <div className="page-header page-header-overview">
+            <div className="page-header">
                 <h4 className="page-title">OVERVIEW</h4>
                 <DateSlider />
             </div>
-            <div className="overview-content card">
-                <div className="overview-tabs">
-                    <div className="overview-tab tab-expense">
-                        <div 
-                            className={`overview-tab-title text-danger mr-5 ${tab === 'Expense'? 'selected':null}`}
-                            onClick={() => setTab('Expense')}
-                        >Expense | $ {totalByType.expense.toFixed(2)}</div>
-                    </div>
-                    <div className="overview-tab tab-income">
-                        <div 
-                            className={`overview-tab-title text-success ${tab === 'Income'? 'selected': null}`}
-                            onClick={() => setTab('Income')}
-                        >Income | $ {totalByType.income.toFixed(2)}</div>
-                    </div>
-                </div>
-                {filteredTransactions.length > 0?
-                    <div className="overview-tab-content">
-                        <OverviewTabContent chartData={chartData} tableData={tableData(totalByCategory)}/>
-                    </div>
-                :
-                <div className="no-data"><h1 className="text-center">No data available</h1></div>
-            }
+            {filteredTransactions.length > 0?
+            <div className="overview-content">
+                    <OverviewChart 
+                        chartData={generateChartData('Expense')} 
+                        chartType={"donut"} 
+                        tableData={generateTableData('Expense')}
+                        type={"Expense"}
+                        width="300"
+                         />
+                    <OverviewChart 
+                        chartData={generateChartData('Income')} 
+                        chartType={"donut"} 
+                        tableData={generateTableData('Income') } 
+                        type={"Income"}
+                        width="300"
+                    />
             </div>
+                :
+            <div className="no-data"><h1 className="text-center">No data available</h1></div>
+            }
         </div>
         
      );

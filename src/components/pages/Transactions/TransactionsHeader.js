@@ -34,8 +34,8 @@ const TransactionsHeader = props => {
 
             <div className="transactions-total-wrapper">
                 <div className="transactions-total">
-                    <div className="transactions-total-income card-info card-green"><div>Income <br/><span className="font-weight-bold">{total.totalIncome}</span>$ </div></div>
-                    <div className="transactions-total-expense card-info card-orange"><div>Expense <br/><span className="font-weight-bold">{total.totalExpense}</span>$ </div></div>
+                    <div className="transactions-total-income card-info card-green"><div>Income <br/><span className="font-weight-bold">$ {total.totalIncome}</span> </div></div>
+                    <div className="transactions-total-expense card-info card-red"><div>Expense <br/><span className="font-weight-bold">$ {total.totalExpense}</span></div></div>
                     <div className="transactions-total-balance card-info card-yellow"><div>Balance <br/><span className="font-weight-bold">$ {total.totalIncome - total.totalExpense}</span></div></div>
                 </div>
             </div>

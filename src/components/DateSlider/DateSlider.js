@@ -28,7 +28,7 @@ const DateSlider = props => {
     return ( 
         <div className="dateSlider">
             <div className="btn btn-dateslider" onClick={previousMonth}><Icon icon={Left} className="icon" /></div>
-                <div className="date"><h2 >{format(date, 'yyyy MMMM')}</h2></div>
+            <div className="dateSlider-date"><h2 >{format(date, 'yyyy MMMM')}</h2></div>
             <div className="btn btn-dateslider" onClick={nextMonth}><Icon icon={Right} className="icon" /></div>
         </div>
      );

@@ -16,19 +16,11 @@ em seguida inicie o projeto usando o comando `npm start`
 
 ## Orientações
 
-Na página Transactions, adicione novas transações usando a primeira linha da tabela.
+Na tela inicial, crie novas transações clicando no botão +
 
-Ao clicar no botão editar, a linha se tornará editável. 
+transações ficam agrupadas de acordo com o dia em que foram criadas
 
-Feitas as alterações, clique no botão salvar.
 
-Caso não queira fazer alterações e deseje sair no modo de edição, clique no botão fechar.
-
-Para excluir uma transação, clique no botão excluir e confirme a exclusão
-
-As transações são separadas por mês, para alterar o mês, use as setas que envolvem a data no topo da página.
-
-Demais páginas serão desenvolvidas posteriormente.
 
 
 
